@@ -1,0 +1,27 @@
+{
+  "name": "incueggs",
+  "version": "1.0.0",
+  "description": "Proyecto Incueggs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiancarloGarciaG/IncuEggs.git"
+  },
+  "author": "Giancarlo Garcia Gallego",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiancarloGarciaG/IncuEggs/issues"
+  },
+  "homepage": "https://github.com/GiancarloGarciaG/IncuEggs#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "serialport": "^5.0.0",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.0"
+  }
+}

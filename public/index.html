@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="Incueggs">
+  <head>
+    <meta charset="utf-8">
+    <title>IncuEggs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script>
+      var app= angular.module('Incueggs', []);
+      var socket= io();
+
+      app.controller('temperatura', ['$scope', function($scope) {
+        socket.on('lectura',function(lectura){//Esta funcion se encarga de escuchar los datos enviados por el ARDUINO.
+          $scope.$apply(function(){
+            $scope.dato= lectura;
+            console.log(lectura);
+          });
+        });
+      }]);
+    </script>
+  </head>
+  <body>
+      <div ng-controller="temperatura">
+          {{dato}}
+      </div>
+  </body>
+</html>
