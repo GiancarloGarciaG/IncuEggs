@@ -19,7 +19,7 @@ port.on('error', function(err) {
   console.log('Error al conectar con el ARDUINO: ', err.message);
 });
 
-port.on('open', function(){
+port.on('open', function(){//Verificamos si el arduino esta disponible.
    console.log('El ARDUINO está disponible.');
 });
 
