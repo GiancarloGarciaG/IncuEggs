@@ -15,17 +15,22 @@ io.on('connection',function(socket){
     console.log("Alguien se conecto a la pagina.");
 });
 
+port.on('error', function(err) {
+  console.log('Error al conectar con el ARDUINO: ', err.message);
+});
+
 port.on('open', function(){
    console.log('El ARDUINO está disponible.');
 });
 
-parser.on('data', function(dato){//Esta funcion se encarga de emitir los datos generados por el ARDUINO
-  console.log(dato);
-  io.sockets.emit('lectura',dato);
+
+parser.on('data', function(dato1){//Esta funcion se encarga de emitir los datos generados por el ARDUINO de la temperatura y la humedad
+  console.log(dato1);
+  io.sockets.emit('tempHum',dato1);
 });
 
 app.get('/',function(req,res){
-  res.sendfile('public/index.html');
+  res.sendfile(__dirname+'/index.html');
 });
 
 server.listen(8080,function(){
